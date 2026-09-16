@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: smo-task12-client-1
+  labels:
+    app: smo-task12-client
+    client-id: client-1
+
+spec:
+  containers:
+    - name: client
+      image: smo-task12-client:latest
+      imagePullPolicy: IfNotPresent
+
+      stdin: true
+      tty: true
+
+      env:
+        - name: CLIENT_ID
+          value: "client-1"
+
+        - name: SERVER_URL
+          value: "http://172.18.0.6:30080"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: smo-task12-client-2
+  labels:
+    app: smo-task12-client
+    client-id: client-2
+
+spec:
+  containers:
+    - name: client
+      image: smo-task12-client:latest
+      imagePullPolicy: IfNotPresent
+
+      stdin: true
+      tty: true
+
+      env:
+        - name: CLIENT_ID
+          value: "client-2"
+
+        - name: SERVER_URL
+          value: "http://172.18.0.6:30080"

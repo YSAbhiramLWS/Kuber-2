@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: smo-task12-service
+
+spec:
+  selector:
+    app: smo-task12-server
+
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+
+  type: NodePort
